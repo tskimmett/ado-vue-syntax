@@ -1,0 +1,27 @@
+{
+	"manifest_version": 3,
+	"name": "Azure DevOps Vue Syntax Highlighting",
+	"description": "Enable syntax highlighting for .vue files when reviewing pull requests.",
+	"version": "1.0",
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"scripts/add-syntax.js"
+			],
+			"matches": [
+				"<all_urls>"
+			]
+		}
+	],
+	"content_scripts": [
+		{
+			"js": [
+				"scripts/index.js"
+			],
+			"matches": [
+				"https://dev.azure.com/*",
+				"https://*.visualstudio.com/*"
+			]
+		}
+	]
+}
