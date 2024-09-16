@@ -1,12 +1,13 @@
-const addVueSyntax = () => {
+const extensions = ['.vue', '.astro'];
+const addSyntaxes = () => {
 	if (!window.monaco) {
-		return setTimeout(addVueSyntax, 250);
+		return setTimeout(addSyntaxes, 250);
 	}
 
 	const htmlDef = monaco.languages.getLanguages().find(l => l.id === 'html');
-	htmlDef.extensions.push('.vue');
+	htmlDef.extensions.push(...extensions);
 	monaco.languages.register(htmlDef);
-	console.log('Added syntax highlighting for .vue files');
+	console.log('Added syntax highlighting for the following file types:', extensions);
 };
 
-addVueSyntax();
+addSyntaxes();
